@@ -1,17 +1,24 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
+import { Images } from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Lightbox } from '../ui/Lightbox'
 import { gallery, galleryCategories, type GalleryFilter } from '../../data/gallery'
 
+const INITIAL_COUNT = 8
+
 export function Gallery() {
   const [filter, setFilter] = useState<GalleryFilter>('Tutte')
   const [active, setActive] = useState<number | null>(null)
+  const [showAll, setShowAll] = useState(false)
 
   const items = useMemo(
     () => (filter === 'Tutte' ? gallery : gallery.filter((g) => g.category === filter)),
     [filter],
   )
+
+  const visible = showAll ? items : items.slice(0, INITIAL_COUNT)
+  const hasMore = items.length > visible.length
 
   return (
     <section id="gallery" className="mx-auto max-w-[1440px] px-6 py-24 md:px-12 md:py-32">
@@ -21,7 +28,10 @@ export function Gallery() {
         {galleryCategories.map((c) => (
           <button
             key={c}
-            onClick={() => setFilter(c)}
+            onClick={() => {
+              setFilter(c)
+              setShowAll(false)
+            }}
             className={`rounded-full px-5 py-2 text-sm font-medium transition ${
               filter === c ? 'bg-red text-cream shadow-warm' : 'bg-white text-ink/70 hover:bg-beige'
             }`}
@@ -32,7 +42,7 @@ export function Gallery() {
       </div>
 
       <div className="masonry">
-        {items.map((img, i) => (
+        {visible.map((img, i) => (
           <motion.button
             key={img.src}
             layout
@@ -51,6 +61,18 @@ export function Gallery() {
           </motion.button>
         ))}
       </div>
+
+      {hasMore && (
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() => setShowAll(true)}
+            className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-ink transition hover:bg-beige"
+          >
+            <Images size={18} />
+            Mostra tutte le foto ({items.length})
+          </button>
+        </div>
+      )}
 
       <Lightbox items={items} index={active} onClose={() => setActive(null)} onNavigate={setActive} />
     </section>

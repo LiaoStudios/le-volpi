@@ -11,7 +11,7 @@ export function Hero() {
         <img
           src="/images/pizza/hero-codex.webp"
           alt="Pizza appena sfornata nel forno a legna"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-[center_30%]"
         />
         {/* overall darken for legibility */}
         <div className="absolute inset-0 bg-ink/45" />
