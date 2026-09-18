@@ -70,7 +70,7 @@ export function Hero() {
             href={siteInfo.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-organic inline-flex items-center gap-2 border border-cream/40 bg-cream/10 px-10 py-4 text-sm font-bold uppercase tracking-wider text-cream backdrop-blur-md hover:bg-cream/20"
+            className="btn-organic inline-flex items-center gap-2 bg-gold px-10 py-4 text-sm font-bold uppercase tracking-wider text-ink shadow-cta hover:bg-gold/90"
           >
             <CalendarHeart size={18} /> Prenota un tavolo
           </a>
