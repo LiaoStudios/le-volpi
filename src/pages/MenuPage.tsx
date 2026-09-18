@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { menu, type MenuItem } from '../data/menu'
 import { siteInfo } from '../data/siteInfo'
 import { fadeUp, stagger } from '../lib/motion'
+import { withBase } from '../lib/paths'
 
 const tagStyle: Record<NonNullable<MenuItem['tag']>, string> = {
   specialità: 'bg-red text-cream',
@@ -15,7 +16,7 @@ function Item({ item }: { item: MenuItem }) {
   return (
     <motion.div variants={fadeUp} className="flex gap-4 rounded-2xl bg-white p-4 shadow-warm">
       {item.image && (
-        <img src={item.image} alt={item.name} loading="lazy" className="h-24 w-24 shrink-0 rounded-xl object-cover" />
+        <img src={withBase(item.image)} alt={item.name} loading="lazy" className="h-24 w-24 shrink-0 rounded-xl object-cover" />
       )}
       <div className="flex-1">
         <div className="flex items-baseline justify-between gap-3">
