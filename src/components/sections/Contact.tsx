@@ -1,4 +1,4 @@
-import { Phone, Navigation, Instagram, Facebook, Clock } from 'lucide-react'
+import { Phone, Navigation, Instagram, Facebook, Clock, CalendarCheck } from 'lucide-react'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 import { siteInfo } from '../../data/siteInfo'
@@ -9,7 +9,7 @@ export function Contact() {
       <SectionHeading eyebrow="Dove trovarci" title="Vieni a trovarci" className="mb-16" />
 
       <div className="grid gap-10 lg:grid-cols-2">
-        <Reveal>
+        <Reveal className="order-2 lg:order-1">
           <div className="h-full overflow-hidden rounded-[2rem] shadow-warm">
             <iframe
               title="Mappa Le Volpi"
@@ -21,7 +21,7 @@ export function Contact() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} className="order-1 lg:order-2">
           <div className="flex h-full flex-col justify-center gap-8 rounded-[2rem] bg-white p-8 shadow-warm md:p-12">
             <div>
               <h3 className="font-serif text-3xl">Le Volpi</h3>
@@ -43,6 +43,14 @@ export function Contact() {
             </div>
 
             <div className="flex flex-wrap gap-3">
+              <a
+                href={siteInfo.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#F2B233] px-6 py-3 text-sm font-bold uppercase tracking-wider text-ink transition hover:bg-[#E0A21F]"
+              >
+                <CalendarCheck size={16} /> Prenota un tavolo
+              </a>
               <a href={siteInfo.phoneHref} className="inline-flex items-center gap-2 rounded-full bg-red px-6 py-3 text-sm font-bold uppercase tracking-wider text-cream transition hover:bg-red-deep">
                 <Phone size={16} /> Chiama
               </a>

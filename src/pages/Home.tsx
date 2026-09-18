@@ -8,7 +8,6 @@ import { RestaurantSplit } from '../components/sections/RestaurantSplit'
 import { Story } from '../components/sections/Story'
 import { Gallery } from '../components/sections/Gallery'
 import { Reviews } from '../components/sections/Reviews'
-import { Reservation } from '../components/sections/Reservation'
 import { Contact } from '../components/sections/Contact'
 import { siteInfo } from '../data/siteInfo'
 
@@ -67,7 +66,6 @@ export function Home() {
       <Story />
       <Gallery />
       <Reviews />
-      <Reservation />
       <Contact />
     </>
   )
