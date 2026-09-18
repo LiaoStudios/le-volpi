@@ -24,8 +24,8 @@ export function Specialties() {
         className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
       >
         {specialties.map((s) => (
-          <motion.div key={s.title} variants={fadeUp}>
-            <Link to="/menu" className="card-organic group block overflow-hidden">
+          <motion.div key={s.title} variants={fadeUp} className="h-full">
+            <Link to="/menu" className="card-organic group flex h-full flex-col overflow-hidden">
               <div className="h-56 overflow-hidden">
                 <img
                   src={withBase(s.img)}
@@ -34,10 +34,10 @@ export function Specialties() {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <div className="p-7 text-center">
+              <div className="flex flex-1 flex-col p-7 text-center">
                 <h3 className="mb-3 font-serif text-2xl italic">{s.title}</h3>
                 <p className="mb-5 text-sm leading-relaxed text-ink/60">{s.text}</p>
-                <span className="text-xs font-bold uppercase tracking-widest text-red transition group-hover:text-red-deep">
+                <span className="mt-auto text-xs font-bold uppercase tracking-widest text-red transition group-hover:text-red-deep">
                   Scopri di più →
                 </span>
               </div>

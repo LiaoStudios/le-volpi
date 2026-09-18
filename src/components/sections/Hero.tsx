@@ -77,13 +77,15 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-ink/50"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 1.8 }}
-      >
-        <span className="text-xs uppercase tracking-[0.3em]">Scorri</span>
-      </motion.div>
+      <div className="absolute inset-x-0 bottom-8 flex justify-center text-ink/50">
+        <motion.span
+          className="text-xs uppercase tracking-[0.3em]"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8 }}
+        >
+          Scorri
+        </motion.span>
+      </div>
     </section>
   )
 }
