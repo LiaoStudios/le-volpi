@@ -3,13 +3,14 @@ import { UtensilsCrossed, CalendarHeart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { LogoBadge } from '../ui/LogoBadge'
 import { siteInfo } from '../../data/siteInfo'
+import { withBase } from '../../lib/paths'
 
 export function Hero() {
   return (
     <section id="home" className="relative flex h-[100svh] min-h-[600px] items-center justify-center overflow-hidden bg-cream">
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/pizza/hero-codex.webp"
+          src={withBase('/images/pizza/hero-codex.webp')}
           alt="Pizza appena sfornata nel forno a legna"
           className="h-full w-full object-cover object-[center_30%]"
         />

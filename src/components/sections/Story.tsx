@@ -1,5 +1,6 @@
 import { Reveal } from '../ui/Reveal'
 import { LogoBadge } from '../ui/LogoBadge'
+import { withBase } from '../../lib/paths'
 
 export function Story() {
   return (
@@ -32,7 +33,7 @@ export function Story() {
         <Reveal delay={0.15} className="flex justify-center lg:justify-end">
           <div className="relative w-full max-w-lg">
             <img
-              src="/images/interior/sala-legno.webp"
+              src={withBase('/images/interior/sala-legno.webp')}
               alt="La sala interna del ristorante Le Volpi"
               loading="lazy"
               className="relative z-20 aspect-[4/5] w-full rounded-[3rem] object-cover shadow-2xl"
@@ -40,7 +41,7 @@ export function Story() {
             <div className="absolute -left-6 -top-6 z-10 h-full w-full rounded-[3rem] border-2 border-gold/30" />
             {/* the real fox stained-glass window as a signature detail */}
             <div className="absolute -bottom-8 -right-6 z-30 h-32 w-32 overflow-hidden rounded-full border-4 border-cream shadow-warm">
-              <img src="/images/brand/volpe-vetrata.webp" alt="Vetrata della volpe" loading="lazy" className="h-full w-full object-cover" />
+              <img src={withBase('/images/brand/volpe-vetrata.webp')} alt="Vetrata della volpe" loading="lazy" className="h-full w-full object-cover" />
             </div>
           </div>
         </Reveal>

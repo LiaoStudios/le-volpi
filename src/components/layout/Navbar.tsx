@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useScrollLock } from '../../lib/useScrollLock'
 import { siteInfo } from '../../data/siteInfo'
+import { withBase } from '../../lib/paths'
 
 const leftSections = [
   { id: 'home', label: 'Home' },
@@ -61,7 +62,7 @@ export function Navbar({ logoReady = true }: { logoReady?: boolean }) {
           solid ? 'h-12 w-12' : 'h-16 w-16'
         }`}
       >
-        <img src="/logo.webp" alt="Logo Le Volpi" className="h-[86%] w-[86%] rounded-full object-contain" />
+        <img src={withBase("/logo.webp")} alt="Logo Le Volpi" className="h-[86%] w-[86%] rounded-full object-contain" />
       </span>
     </Link>
   )
@@ -125,7 +126,7 @@ export function Navbar({ logoReady = true }: { logoReady?: boolean }) {
           >
             <div className="flex items-center justify-between px-6 py-4">
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-cream">
-                <img src="/logo.webp" alt="Logo Le Volpi" className="h-[86%] w-[86%] rounded-full object-contain" />
+                <img src={withBase("/logo.webp")} alt="Logo Le Volpi" className="h-[86%] w-[86%] rounded-full object-contain" />
               </span>
               <button onClick={() => setOpen(false)} aria-label="Chiudi menu">
                 <X size={28} />

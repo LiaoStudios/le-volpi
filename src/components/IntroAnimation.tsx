@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
+import { withBase } from '../lib/paths'
 
 const END_AT = 9.0 // seconds of video where the logo has settled (rest is static)
 const RATE = 1.3
@@ -121,7 +122,7 @@ export function IntroAnimation({ onFinish }: { onFinish?: () => void }) {
       {phase === 'play' && (
         <video
           ref={videoRef}
-          src="/intro/fox-intro.mp4"
+          src={withBase('/intro/fox-intro.mp4')}
           muted
           playsInline
           autoPlay
@@ -139,7 +140,7 @@ export function IntroAnimation({ onFinish }: { onFinish?: () => void }) {
           transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
           onAnimationComplete={finish}
         >
-          <img src="/logo.webp" alt="Logo Le Volpi" className="h-[86%] w-[86%] rounded-full object-contain" />
+          <img src={withBase('/logo.webp')} alt="Logo Le Volpi" className="h-[86%] w-[86%] rounded-full object-contain" />
         </motion.div>
       )}
 

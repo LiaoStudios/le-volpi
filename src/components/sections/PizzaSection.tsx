@@ -3,6 +3,7 @@ import { Flame } from 'lucide-react'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Reveal } from '../ui/Reveal'
+import { withBase } from '../../lib/paths'
 
 export function PizzaSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -47,10 +48,10 @@ export function PizzaSection() {
 
         <div className="relative order-1 h-[420px] md:h-[520px] lg:order-2">
           <motion.div style={{ y }} className="absolute right-0 top-0 h-[85%] w-[78%] overflow-hidden rounded-[2.5rem] shadow-warm">
-            <img src="/images/pizza/pizza-rucola.webp" alt="Pizza artigianale" loading="lazy" className="h-full w-full object-cover" />
+            <img src={withBase('/images/pizza/pizza-rucola.webp')} alt="Pizza artigianale" loading="lazy" className="h-full w-full object-cover" />
           </motion.div>
           <motion.div style={{ y: ySmall }} className="absolute bottom-0 left-0 h-[45%] w-[48%] overflow-hidden rounded-[2rem] border-4 border-cream shadow-warm">
-            <img src="/images/pizza/pizza-verdure.webp" alt="Pizza con verdure grigliate" loading="lazy" className="h-full w-full object-cover" />
+            <img src={withBase('/images/pizza/pizza-verdure.webp')} alt="Pizza con verdure grigliate" loading="lazy" className="h-full w-full object-cover" />
           </motion.div>
           <div className="absolute -bottom-4 right-8 flex h-24 w-24 items-center justify-center rounded-full bg-bordeaux text-center text-xs font-bold uppercase leading-tight tracking-wide text-cream shadow-warm">
             Forno<br />a legna

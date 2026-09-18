@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { SectionHeading } from '../ui/SectionHeading'
 import { fadeUp, inView, stagger } from '../../lib/motion'
+import { withBase } from '../../lib/paths'
 
 const specialties = [
   { title: 'La nostra pizza', img: '/images/pizza/pizza-bufala.webp', text: 'Il nostro impasto, il nostro forno a legna, la nostra tradizione.' },
@@ -27,7 +28,7 @@ export function Specialties() {
             <Link to="/menu" className="card-organic group block overflow-hidden">
               <div className="h-56 overflow-hidden">
                 <img
-                  src={s.img}
+                  src={withBase(s.img)}
                   alt={s.title}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"

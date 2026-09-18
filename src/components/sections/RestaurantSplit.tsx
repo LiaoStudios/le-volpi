@@ -1,5 +1,6 @@
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
+import { withBase } from '../../lib/paths'
 
 interface SplitProps {
   img: string
@@ -14,7 +15,7 @@ function Split({ img, alt, eyebrow, title, text, reverse }: SplitProps) {
   return (
     <div className={`grid items-center gap-0 overflow-hidden md:grid-cols-2 ${reverse ? 'md:[direction:rtl]' : ''}`}>
       <div className="h-[340px] overflow-hidden md:h-[500px] [direction:ltr]">
-        <img src={img} alt={alt} loading="lazy" className="h-full w-full object-cover" />
+        <img src={withBase(img)} alt={alt} loading="lazy" className="h-full w-full object-cover" />
       </div>
       <Reveal className="[direction:ltr]">
         <div className="px-6 py-12 md:px-14 md:py-0">

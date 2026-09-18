@@ -4,6 +4,7 @@ import { Images } from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { Lightbox } from '../ui/Lightbox'
 import { gallery, galleryCategories, type GalleryFilter } from '../../data/gallery'
+import { withBase } from '../../lib/paths'
 
 const INITIAL_COUNT = 8
 
@@ -13,7 +14,11 @@ export function Gallery() {
   const [showAll, setShowAll] = useState(false)
 
   const items = useMemo(
-    () => (filter === 'Tutte' ? gallery : gallery.filter((g) => g.category === filter)),
+    () =>
+      (filter === 'Tutte' ? gallery : gallery.filter((g) => g.category === filter)).map((g) => ({
+        ...g,
+        src: withBase(g.src),
+      })),
     [filter],
   )
 
